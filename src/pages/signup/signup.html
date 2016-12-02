@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <img src="http://placehold.it/800x200">
+
+  <ion-list no-lines>
+
+    <ion-item>
+      <ion-label floating>Full Name</ion-label>
+      <ion-input type="text" [(ngModel)]="user.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password </ion-label>
+      <ion-input type="password"  [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button block ion-button (click)="signup()">Sign Up</button>
+
+</ion-content>

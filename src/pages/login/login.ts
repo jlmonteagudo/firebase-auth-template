@@ -3,6 +3,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth-provider';
 import { User } from '../../models/user-model';
 import { HomePage } from '../home/home';
+import { SignupPage } from '../signup/signup';
 
 @Component({
   selector: 'page-login',
@@ -23,7 +24,7 @@ export class LoginPage {
   }
 
   goToSignUp() {
-    console.log('SIGN UP');
+    this.navCtrl.push(SignupPage);
   }
 
   goToResetPassword() {

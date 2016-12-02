@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase';
+import { User } from '../models/user-model';
 
 @Injectable()
 export class AuthProvider {
@@ -14,8 +15,11 @@ export class AuthProvider {
     return this.auth.signInWithEmailAndPassword(email, password);
   }
   
-  signUp(email: string, password: string): firebase.Promise<any> {
-    return this.auth.createUserWithEmailAndPassword(email, password);
+  signUp(user: User): firebase.Promise<any> {
+    return this.auth.createUserWithEmailAndPassword(user.email, user.password)
+      .then((newUser: firebase.User) => {
+        newUser.updateProfile({displayName: user.name, photoURL: newUser.photoURL});
+      });
   }
 
   resetPassword(email: string): firebase.Promise<any> {
@@ -24,6 +28,10 @@ export class AuthProvider {
 
   logout(): firebase.Promise<any> {
     return this.auth.signOut();
+  }
+
+  currentUser(): firebase.User {
+    return firebase.auth().currentUser;
   }
 
 }
