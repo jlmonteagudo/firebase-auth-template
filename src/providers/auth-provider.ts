@@ -18,7 +18,7 @@ export class AuthProvider {
   signUp(user: User): firebase.Promise<any> {
     return this.auth.createUserWithEmailAndPassword(user.email, user.password)
       .then((newUser: firebase.User) => {
-        newUser.updateProfile({displayName: user.name, photoURL: newUser.photoURL});
+        newUser.updateProfile({displayName: user.displayName, photoURL: newUser.photoURL});
       });
   }
 
@@ -30,8 +30,9 @@ export class AuthProvider {
     return this.auth.signOut();
   }
 
-  currentUser(): firebase.User {
-    return firebase.auth().currentUser;
+  currentUser(): User {
+    let user: any = firebase.auth().currentUser; 
+    return user;
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth-provider';
-import firebase from 'firebase';
+import { User } from '../../models/user-model';
 
 
 @Component({
@@ -10,7 +10,7 @@ import firebase from 'firebase';
 })
 export class HomePage {
 
-  currentUser: firebase.User;
+  currentUser: User;
 
   constructor(public navCtrl: NavController, public authProvider: AuthProvider) {
     this.currentUser = authProvider.currentUser();  

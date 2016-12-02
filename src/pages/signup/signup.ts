@@ -10,7 +10,7 @@ import { HomePage } from '../home/home';
 })
 export class SignupPage {
 
-  user: User = { email: '', password: '', name: ''};
+  user: User = { email: '', password: '', displayName: ''};
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public authProvider: AuthProvider) {}
 
