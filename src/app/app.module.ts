@@ -5,13 +5,15 @@ import { AuthProvider } from '../providers/auth-provider';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    ResetPasswordPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -21,7 +23,8 @@ import { SignupPage } from '../pages/signup/signup';
     MyApp,
     HomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    ResetPasswordPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler}, 
